@@ -74,6 +74,17 @@ header h1 {
   border: 2px solid blue !important;
 }
 
+.delete {
+  background-color: rgb(228, 54, 54);
+  padding: 10px 5px;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 .wordCounterContainer .countContaner {
   height: max-content;
   width: max-content;
@@ -110,4 +121,88 @@ footer {
 footer a {
   font-size: 2em;
   color: plum;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  header h1 {
+    font-size: 2.5em;
+  }
+
+  .wordCounterContainer .inputContainer {
+    width: 80%;
+  }
+}
+
+@media (max-width: 992px) {
+  header h1 {
+    font-size: 2em;
+  }
+
+  .wordCounterContainer .inputContainer textarea {
+    height: 50vh;
+  }
+
+  .wordCounterContainer .countContaner p {
+    font-size: 1.5em;
+  }
+
+  footer a {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.75em;
+  }
+
+  .wordCounterContainer .inputContainer {
+    width: 90%;
+  }
+
+  .wordCounterContainer .inputContainer textarea {
+    height: 45vh;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  .theme {
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
+  }
+
+  .wordCounterContainer {
+    padding: 10px;
+  }
+
+  .wordCounterContainer .inputContainer {
+    width: 100%;
+  }
+
+  .wordCounterContainer .inputContainer textarea {
+    height: 40vh;
+  }
+
+  .wordCounterContainer .countContaner p {
+    font-size: 1.25em;
+  }
+
+  .wordCountDisplay {
+    font-size: 1.5em;
+  }
+
+  footer a {
+    font-size: 1.25em;
+  }
 }

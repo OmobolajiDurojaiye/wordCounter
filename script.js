@@ -1,6 +1,7 @@
 const userInput = document.querySelector(".userInput");
 const wordCountDisplay = document.querySelector(".wordCountDisplay");
 const theme = document.querySelector(".theme");
+const deleteContent = document.querySelector(".delete");
 
 const countWord = (text) => {
   const words = text
@@ -22,4 +23,9 @@ theme.addEventListener("click", function () {
   } else {
     document.body.style.background = "whitesmoke";
   }
+});
+
+deleteContent.addEventListener("click", function () {
+  userInput.value = "";
+  wordCountDisplay.textContent = "0";
 });
