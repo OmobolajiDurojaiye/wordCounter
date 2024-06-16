@@ -1,0 +1,113 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  /* color: #000; */
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+header {
+  height: max-content;
+  /* border-bottom: 2px solid red; */
+  box-shadow: 0px 47px 50px -30px rgba(0, 0, 0, 0.1);
+  background: #333;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 3em !important;
+  color: plum;
+}
+
+.theme {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border: #333;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.wordCounterContainer {
+  margin-top: 5vh;
+  width: 100%;
+  position: relative;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  /* border: 1px solid red; */
+}
+
+.wordCounterContainer .inputContainer {
+  height: max-content;
+  /* border: 2px solid blue; */
+  width: 60%;
+  /* padding: 20px; */
+}
+
+.wordCounterContainer .inputContainer textarea {
+  height: 55vh;
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #fff !important;
+  box-shadow: 0px 100px 84px -30px rgba(0, 0, 0, 0.1);
+  font-family: "Fira Sans", sans-serif;
+}
+
+.wordCounterContainer .inputContainer textarea:focus {
+  border: 2px solid blue !important;
+}
+
+.wordCounterContainer .countContaner {
+  height: max-content;
+  width: max-content;
+  /* border: 1px solid green; */
+  padding: 5px;
+  /* margin-top: 10px; */
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.wordCounterContainer .countContaner p {
+  font-size: 2em;
+  color: plum;
+}
+
+.wordCountDisplay {
+  font-size: 2em !important;
+  color: #000;
+  border-radius: 20px;
+  box-shadow: 0px 100px 84px -30px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  height: max-content;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  color: white;
+}
+
+footer a {
+  font-size: 2em;
+  color: plum;
+}
