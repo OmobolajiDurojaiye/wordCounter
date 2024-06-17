@@ -19,7 +19,7 @@ userInput.addEventListener("input", () => {
 
 theme.addEventListener("click", function () {
   if (document.body.style.background === "whitesmoke") {
-    document.body.style.background = "#333";
+    document.body.style.background = "#222";
   } else {
     document.body.style.background = "whitesmoke";
   }
