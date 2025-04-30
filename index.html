@@ -4,72 +4,229 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Word Counter</title>
+    <title>Advanced Word Counter</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- FontAwesome for icons -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
   <body>
-    <div class="darkMode">
-      <button class="theme">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-moon-fill"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"
-          />
-        </svg>
-      </button>
-    </div>
-    <header>
-      <h1>B's Word Counter</h1>
-    </header>
-    <section class="wordCounterContainer">
-      <div class="inputContainer">
-        <textarea class="userInput" rows="10" cols="50"></textarea>
-      </div>
-
-      <div class="countContaner">
-        <div class="deleteContainer">
-          <button class="delete">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-trash-fill"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"
-              />
-            </svg>
-            &nbsp; Delete
+    <div class="app-container">
+      <header>
+        <div class="logo-container">
+          <div class="logo-icon">
+            <i class="fas fa-keyboard"></i>
+          </div>
+          <h1>B-WordMetrics</h1>
+        </div>
+        <div class="controls">
+          <button
+            id="theme-toggle"
+            class="control-btn"
+            aria-label="Toggle dark mode"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
+          <button
+            id="settings-toggle"
+            class="control-btn"
+            aria-label="Settings"
+          >
+            <i class="fas fa-cog"></i>
           </button>
         </div>
-        <p><span class="wordCountDisplay">0</span> <span> </span> words</p>
+      </header>
+
+      <main class="content">
+        <div class="editor-container">
+          <div class="editor-header">
+            <div class="file-actions">
+              <button id="new-doc" class="action-btn" title="New Document">
+                <i class="fas fa-file"></i>
+              </button>
+              <button
+                id="download-doc"
+                class="action-btn"
+                title="Download Document"
+              >
+                <i class="fas fa-download"></i>
+              </button>
+              <button id="copy-doc" class="action-btn" title="Copy Text">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <div class="text-format">
+              <button
+                id="format-plain"
+                class="format-btn active"
+                title="Plain Text"
+              >
+                <i class="fas fa-font"></i>
+              </button>
+              <button id="format-markdown" class="format-btn" title="Markdown">
+                <i class="fab fa-markdown"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="editor-wrapper">
+            <textarea
+              id="text-input"
+              class="text-editor"
+              placeholder="Start typing or paste your text here..."
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="metrics-sidebar">
+          <div class="metrics-card primary">
+            <h3>Word Count</h3>
+            <div class="metric-value" id="word-count">0</div>
+          </div>
+
+          <div class="metrics-row">
+            <div class="metrics-card">
+              <h3>Characters</h3>
+              <div class="metric-value" id="char-count">0</div>
+            </div>
+            <div class="metrics-card">
+              <h3>Characters (no spaces)</h3>
+              <div class="metric-value" id="char-no-spaces">0</div>
+            </div>
+          </div>
+
+          <div class="metrics-row">
+            <div class="metrics-card">
+              <h3>Sentences</h3>
+              <div class="metric-value" id="sentence-count">0</div>
+            </div>
+            <div class="metrics-card">
+              <h3>Paragraphs</h3>
+              <div class="metric-value" id="paragraph-count">0</div>
+            </div>
+          </div>
+
+          <div class="metrics-card">
+            <h3>Reading Time</h3>
+            <div class="metric-value" id="reading-time">0 min</div>
+          </div>
+
+          <div class="metrics-card">
+            <h3>Speaking Time</h3>
+            <div class="metric-value" id="speaking-time">0 min</div>
+          </div>
+
+          <div class="metrics-card advanced-metrics">
+            <div class="advanced-header">
+              <h3>Advanced Metrics</h3>
+              <button id="toggle-advanced" class="toggle-btn">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+            <div class="advanced-content hidden">
+              <div class="advanced-metric">
+                <span>Reading Level:</span>
+                <span id="reading-level">-</span>
+              </div>
+              <div class="advanced-metric">
+                <span>Top Keywords:</span>
+                <span id="top-keywords">-</span>
+              </div>
+              <div class="advanced-metric">
+                <span>Avg. Sentence Length:</span>
+                <span id="avg-sentence">-</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button id="clear-text" class="action-btn danger">
+              <i class="fas fa-trash-alt"></i> Clear Text
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <!-- Settings Panel -->
+      <div id="settings-panel" class="settings-panel hidden">
+        <div class="settings-header">
+          <h2>Settings</h2>
+          <button id="close-settings" class="close-btn">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="settings-content">
+          <div class="setting-group">
+            <h3>Appearance</h3>
+            <div class="setting-item">
+              <label for="theme-select">Theme</label>
+              <select id="theme-select">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="system">System Default</option>
+              </select>
+            </div>
+            <div class="setting-item">
+              <label for="font-size">Font Size</label>
+              <div class="range-with-value">
+                <input
+                  type="range"
+                  id="font-size"
+                  min="12"
+                  max="24"
+                  value="16"
+                />
+                <span id="font-size-value">16px</span>
+              </div>
+            </div>
+          </div>
+          <div class="setting-group">
+            <h3>Counting Options</h3>
+            <div class="setting-item checkbox">
+              <input type="checkbox" id="count-hyphenated" checked />
+              <label for="count-hyphenated"
+                >Count hyphenated words as one</label
+              >
+            </div>
+            <div class="setting-item checkbox">
+              <input type="checkbox" id="ignore-html" />
+              <label for="ignore-html">Ignore HTML tags when counting</label>
+            </div>
+            <div class="setting-item checkbox">
+              <input type="checkbox" id="show-advanced" />
+              <label for="show-advanced">Always show advanced metrics</label>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-    <footer>
-      <p>
-        Made with &#128156; by
-        <a target="_blank" href="https://omobolajidurojaiye.tech/">B</a>
-      </p>
-    </footer>
+
+      <footer>
+        <p>
+          Made with <i class="fas fa-heart"></i> by
+          <a href="https://omobolajidurojaiye.tech/" target="_blank">B</a>
+        </p>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">About</a>
+          <a href="#" class="footer-link">Help</a>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+      <div class="toast-content">
+        <i id="toast-icon" class="fas"></i>
+        <span id="toast-message"></span>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
